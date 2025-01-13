@@ -1,29 +1,18 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Contacto from "./components/pages/Contacto";
 import Empresa from "./components/pages/Empresa";
 import NovoProjecto from "./components/pages/NovoProjecto";
+import Projectos from "./components/pages/Projectos";
 
 import Container from "./components/layout/Container";
+import Navbar from "./components/layout/Navbar";
+import Footer
+ from "./components/layout/Footer";
 function App() {
   return (
     <Router>
-    <nav>
-        <ul>
-          <li>
-            <Link to="/"> Home</Link>
-          </li>
-          <li>
-            <Link to="/empresa"> Empresa</Link>
-          </li>
-          <li>
-            <Link to="/contacto"> Contacto</Link>
-          </li>
-          <li>
-            <Link to="/novoprojecto"> Novo projecto</Link>
-          </li>
-        </ul>
-      </nav>
+    <Navbar/>
     
 
     {/* Um <Routes> examina seus <Route>s filhos e
@@ -31,12 +20,13 @@ function App() {
         <Container customClass="min-height">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/projectos" element={<Projectos />} />
             <Route path="/empresa" element={<Empresa />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/novoprojecto" element={<NovoProjecto />} />
           </Routes>
         </Container>
-          <p>Footer</p>
+          <Footer/>
   </Router>
   );
 }
