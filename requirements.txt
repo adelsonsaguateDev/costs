@@ -102,3 +102,10 @@ Claro, vou explicar cada pacote listado no comando `npm install`:
 ---
 
 Se precisar de mais explicações ou exemplos para algum dos pacotes, é só dizer! 😊
+
+
+Para conectar a base de dados foi necessário criar um ficheiro:
+db.json
+depois vamoos ao package.json
+adicionamos no scripts:
+    "backend": "json-server --watch db.json --port 5000",
