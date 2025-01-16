@@ -1,21 +1,33 @@
 {
-  "projectos":[],
-  "categorias":[
+  "projectos": [
     {
-        "id":1,
-      "nome":"Infra-Estrutura"
+      "id": "1",
+      "name": "Desenvolvimento de um website",
+      "budget": "15000",
+      "categoria": {
+        "id": "2",
+        "nome": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": []
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "nome": "Infra-Estrutura"
     },
     {
-        "id":2,
-      "nome":"Desenvolvimento"
+      "id": "2",
+      "nome": "Desenvolvimento"
     },
     {
-        "id":3,
-      "nome":"Design"
+      "id": "3",
+      "nome": "Design"
     },
     {
-        "id":4,
-      "nome":"Redes"
+      "id": "4",
+      "nome": "Redes"
     }
   ]
 }
