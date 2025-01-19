@@ -10,6 +10,72 @@
       },
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "9161",
+      "name": "Aplificação da sala de TI",
+      "budget": "54000",
+      "categoria": {
+        "id": "1",
+        "nome": "Infra-Estrutura"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "de0a",
+      "name": "Montagem de Switch",
+      "budget": "4500",
+      "categoria": {
+        "id": "4",
+        "nome": "Redes"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "fa12",
+      "name": "Criação de Banners para o site oficial",
+      "budget": "48000",
+      "categoria": {
+        "id": "2",
+        "nome": "Desenvolvimento"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "e07e",
+      "name": "Montagem de Switch2",
+      "budget": "7800",
+      "categoria": {
+        "id": "1",
+        "nome": "Infra-Estrutura"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "ea18",
+      "name": "Teste",
+      "budget": "800",
+      "categoria": {
+        "id": "1",
+        "nome": "Infra-Estrutura"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "11bb",
+      "name": "Aplificação da sala de TI da ACSUN",
+      "budget": "87500",
+      "categoria": {
+        "id": "1",
+        "nome": "Infra-Estrutura"
+      },
+      "cost": 0,
+      "services": []
     }
   ],
   "categorias": [
