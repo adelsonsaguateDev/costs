@@ -76,6 +76,22 @@
       },
       "cost": 0,
       "services": []
+    },
+    {
+      "id": "12da",
+      "name": "Construção de Sala de Servidores",
+      "budget": "450000",
+      "categoria": {
+        "id": "1",
+        "nome": "Infra-Estrutura"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "e1d9",
+      "cost": 0,
+      "services": []
     }
   ],
   "categorias": [
