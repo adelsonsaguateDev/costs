@@ -89,7 +89,46 @@
       "services": []
     },
     {
-      "id": "e1d9",
+      "id": "eb8f",
+      "name": "Elaboração de um plano de redes",
+      "budget": "1200",
+      "categoria": {
+        "id": "4",
+        "nome": "Redes"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "7f25",
+      "name": "Manutenção do SIGED",
+      "budget": "15000",
+      "categoria": {
+        "id": "3",
+        "nome": "Design"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "4fa0",
+      "name": "Equipamento para o meeting anual",
+      "budget": "45000",
+      "categoria": {
+        "id": "5",
+        "nome": "Planejamento"
+      },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "b1eb",
+      "name": "Ola Mundo",
+      "budget": "4500",
+      "categoria": {
+        "id": "2",
+        "nome": "Desenvolvimento"
+      },
       "cost": 0,
       "services": []
     }
@@ -110,6 +149,10 @@
     {
       "id": "4",
       "nome": "Redes"
+    },
+    {
+      "id": "5",
+      "nome": "Planejamento"
     }
   ]
 }
