@@ -10,6 +10,7 @@ import styles from "./Projectos.module.css";
 function Projectos() {
   const [projects, setProjects] = useState([]);
   const [hideLoader, setHideLoader] = useState(false);
+  const [projectMessage, setProjectMessage] = useState('');
 
   const location = useLocation();
   let message = "";
@@ -22,23 +23,39 @@ function Projectos() {
 
   useEffect(() => {
     if (!hasFetched.current) {
-      hasFetched.current = true; // Marca como já feita
-      setTimeout(() => { //Usado para fazer o loader levar mais tempo
-        fetch("http://localhost:5000/projectos", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+    hasFetched.current = true; // Marca como já feita
+    setTimeout(() => {
+      //Usado para fazer o loader levar mais tempo
+      fetch("http://localhost:5000/projectos", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setProjects(data);
+          setHideLoader(true);
         })
-          .then((response) => response.json())
-          .then((data) => {
-            setProjects(data);
-            setHideLoader(true);
-          })
-          .catch((error) => console.log(error)());
-      }, 2000);
+        .catch((error) => console.log(error)());
+    }, 2000);
     }
   }, []);
+
+  function removeProject(id) {
+    fetch(`http://localhost:5000/projectos/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        setProjects(projects.filter((project) => project.id !== id));
+        setProjectMessage(`Projecto removido com sucesso!`)
+      })
+      .catch((error) => console.log(error));
+  }
 
   return (
     <div className={styles.project_container}>
@@ -51,6 +68,7 @@ function Projectos() {
       </div>
 
       {message && <Message type="success" msg={message} />}
+      {projectMessage && <Message type="success" msg={projectMessage} />}
       <Container customClass="start">
         {projects.length > 0 &&
           projects.map((project) => (
@@ -60,10 +78,11 @@ function Projectos() {
               budget={project.budget}
               category={project.categoria?.nome || "Sem Categoria"}
               key={project.id}
+              handleRemove={removeProject}
             />
           ))}
         {!hideLoader && <Loading />}
-        {hideLoader &&  projects.length === 0 && (
+        {hideLoader && projects.length === 0 && (
           <p>Nenhum projecto encontrado.</p>
         )}
       </Container>
