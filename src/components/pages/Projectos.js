@@ -4,13 +4,14 @@ import Message from "../layout/Message";
 import Container from "../layout/Container";
 import Loading from "../layout/Loading";
 import LinkButton from "../layout/LinkButton";
+import Alert from "../layout/Alert";
 import ProjectCard from "../project/ProjectCard";
 
 import styles from "./Projectos.module.css";
 function Projectos() {
   const [projects, setProjects] = useState([]);
   const [hideLoader, setHideLoader] = useState(false);
-  const [projectMessage, setProjectMessage] = useState('');
+  const [projectMessage, setProjectMessage] = useState("");
 
   const location = useLocation();
   let message = "";
@@ -23,22 +24,22 @@ function Projectos() {
 
   useEffect(() => {
     if (!hasFetched.current) {
-    hasFetched.current = true; // Marca como já feita
-    setTimeout(() => {
-      //Usado para fazer o loader levar mais tempo
-      fetch("http://localhost:5000/projectos", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setProjects(data);
-          setHideLoader(true);
+      hasFetched.current = true; // Marca como já feita
+      setTimeout(() => {
+        //Usado para fazer o loader levar mais tempo
+        fetch("http://localhost:5000/projectos", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
         })
-        .catch((error) => console.log(error)());
-    }, 2000);
+          .then((response) => response.json())
+          .then((data) => {
+            setProjects(data);
+            setHideLoader(true);
+          })
+          .catch((error) => console.log(error)());
+      }, 2000);
     }
   }, []);
 
@@ -52,7 +53,7 @@ function Projectos() {
       .then((response) => response.json())
       .then(() => {
         setProjects(projects.filter((project) => project.id !== id));
-        setProjectMessage(`Projecto removido com sucesso!`)
+        setProjectMessage(`Projecto removido com sucesso!`);
       })
       .catch((error) => console.log(error));
   }
@@ -75,17 +76,17 @@ function Projectos() {
             <ProjectCard
               id={project.id}
               name={project.name}
-              budget={project.budget}
+              budget={project.budget || 0}
               category={project.categoria?.nome || "Sem Categoria"}
               key={project.id}
               handleRemove={removeProject}
             />
           ))}
         {!hideLoader && <Loading />}
-        {hideLoader && projects.length === 0 && (
-          <p>Nenhum projecto encontrado.</p>
-        )}
       </Container>
+      {hideLoader && projects.length === 0 && (
+        <Alert type="info" message="Nenhum projecto encontrado!" />
+      )}
     </div>
   );
 }
