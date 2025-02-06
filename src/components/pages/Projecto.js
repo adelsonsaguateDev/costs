@@ -10,6 +10,7 @@ function Projecto() {
 
   const [project, setProject] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
+  const [showServiceForm, setShowServiceForm] = useState(false);
   const [message, setMessage] = useState();
   const [type, setType] = useState();
 
@@ -36,10 +37,11 @@ function Projecto() {
   }, [id]);
 
   function editPost(project) {
+    setMessage("");
     if (project.budget < project.cost) {
       setMessage("O orçamento não pode ser menor que o custo do projecto!");
-      setType("error")
-      return false
+      setType("error");
+      return false;
     }
 
     fetch(`http://localhost:5000/projectos/${project.id}`, {
@@ -54,13 +56,16 @@ function Projecto() {
         setProject(data);
         setShowProjectForm(false);
         setMessage("O projecto actualizado com sucesso!");
-        setType("success")
+        setType("success");
       })
       .catch((error) => console.log(error)());
   }
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
+  }
+  function toggleServiceForm() {
+    setShowServiceForm(!showServiceForm);
   }
 
   return (
@@ -97,6 +102,19 @@ function Projecto() {
                 </div>
               )}
             </div>
+            <div className={styles.service_form_container}>
+              <h2>Adicone um serviço:</h2>
+              <button className={styles.btn} onClick={toggleServiceForm}>
+                {!showServiceForm ? "Adiconar serviço" : "Fechar"}
+              </button>
+              <div className={styles.project_info}>
+                {!showServiceForm && <div>formulario</div>}
+              </div>
+            </div>
+            <h2>Serviços</h2>
+            <Container className="start">
+              <p>Itens de Serviço</p>
+            </Container>
           </Container>
         </div>
       ) : (
