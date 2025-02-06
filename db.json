@@ -8,8 +8,15 @@
         "id": "2",
         "nome": "Desenvolvimento"
       },
-      "cost": 0,
-      "services": []
+      "cost": 396,
+      "services": [
+        {
+          "name": "Teste",
+          "cost": "396",
+          "descricao": "Inventário_2024-10-13",
+          "id": "ad06969c-0111-4123-852a-d9b9f1912c5b"
+        }
+      ]
     },
     {
       "id": "9161",
