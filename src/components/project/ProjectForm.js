@@ -3,10 +3,10 @@ import Input from '../form/Input';
 import Select from '../form/Select';
 import SubmitButton from '../form/SubmitButton';
 import styles from './ProjectForm.module.css'
-function ProjectForm( { handleSubmit, btnText, projectoData}){
+function ProjectForm( { handleSubmit, btnText, projectData}){
 
    const [categorias, setCategorias] = useState([])
-   const [projectos, setProjectos] = useState(projectoData || {})
+   const [projectos, setProjectos] = useState(projectData || {})
    const hasFetched = useRef(false); // Variável para verificar se já fez a requisição
 
 

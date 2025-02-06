@@ -25,7 +25,7 @@
     {
       "id": "de0a",
       "name": "Montagem de Switch",
-      "budget": "4500",
+      "budget": "45000",
       "categoria": {
         "id": "4",
         "nome": "Redes"
@@ -35,11 +35,11 @@
     },
     {
       "id": "fa12",
-      "name": "Criação de Banners para o site oficial",
-      "budget": "48000",
+      "name": "Criação de Banners",
+      "budget": "42000",
       "categoria": {
-        "id": "2",
-        "nome": "Desenvolvimento"
+        "id": "3",
+        "nome": "Design"
       },
       "cost": 0,
       "services": []
@@ -106,17 +106,6 @@
       "categoria": {
         "id": "3",
         "nome": "Design"
-      },
-      "cost": 0,
-      "services": []
-    },
-    {
-      "id": "4fa0",
-      "name": "Equipamento para o meeting anual",
-      "budget": "45000",
-      "categoria": {
-        "id": "5",
-        "nome": "Planejamento"
       },
       "cost": 0,
       "services": []

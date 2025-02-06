@@ -3,11 +3,15 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Loading from "../layout/Loading.js";
 import Container from "../layout/Container.js";
+import ProjectForm from "../project/ProjectForm.js";
+import Message from "../layout/Message.js";
 function Projecto() {
   const { id } = useParams();
 
   const [project, setProject] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
+  const [message, setMessage] = useState();
+  const [type, setType] = useState();
 
   const hasFetched = useRef(false);
 
@@ -31,6 +35,30 @@ function Projecto() {
     }
   }, [id]);
 
+  function editPost(project) {
+    if (project.budget < project.cost) {
+      setMessage("O orçamento não pode ser menor que o custo do projecto!");
+      setType("error")
+      return false
+    }
+
+    fetch(`http://localhost:5000/projectos/${project.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(project),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProject(data);
+        setShowProjectForm(false);
+        setMessage("O projecto actualizado com sucesso!");
+        setType("success")
+      })
+      .catch((error) => console.log(error)());
+  }
+
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
   }
@@ -40,6 +68,7 @@ function Projecto() {
       {project.name ? (
         <div className={styles.project_details}>
           <Container customClass="column">
+            {message && <Message type={type} msg={message} />}
             <div className={styles.details_container}>
               <h1>Projecto: {project.name}</h1>
               <button className={styles.btn} onClick={toggleProjectForm}>
@@ -60,7 +89,11 @@ function Projecto() {
                 </div>
               ) : (
                 <div className={styles.project_info}>
-                  <p>form</p>
+                  <ProjectForm
+                    handleSubmit={editPost}
+                    btnText="Concluir edição"
+                    projectData={project}
+                  />
                 </div>
               )}
             </div>
