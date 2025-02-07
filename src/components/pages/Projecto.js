@@ -4,14 +4,17 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import Loading from "../layout/Loading.js";
 import Container from "../layout/Container.js";
-import ProjectForm from "../project/ProjectForm.js";
 import Message from "../layout/Message.js";
+import Alert from "../layout/Alert.js";
+import ProjectForm from "../project/ProjectForm.js";
 import ServiceForm from "../service/ServiceForm.js";
+import ServiceCard from "../service/ServiceCard.js";
 
 function Projecto() {
   const { id } = useParams();
 
   const [project, setProject] = useState([]);
+  const [services, setServices] = useState([]);
   const [showProjectForm, setShowProjectForm] = useState(false);
   const [showServiceForm, setShowServiceForm] = useState(false);
   const [message, setMessage] = useState();
@@ -33,6 +36,7 @@ function Projecto() {
           .then((response) => response.json())
           .then((data) => {
             setProject(data);
+            setServices(data.services);
           })
           .catch((error) => console.log(error)());
       }, 1000);
@@ -65,7 +69,7 @@ function Projecto() {
   }
 
   function createService() {
-    setMessage('');
+    setMessage("");
 
     //last service
     const lastService = project.services[project.services.length - 1];
@@ -75,7 +79,6 @@ function Projecto() {
     const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost);
 
     if (newCost > parseFloat(project.budget)) {
-
       setMessage(
         "Por favor, o orçamento não deve ser ultrapassado, verifique o valor do serviço"
       );
@@ -98,15 +101,12 @@ function Projecto() {
     })
       .then((response) => response.json())
       .then((data) => {
-
-        console.log(data)
-        // setProject(data);
-        // setShowProjectForm(false);
-        // setMessage("O projecto actualizado com sucesso!");
-        // setType("success");
+        showServiceForm(false)
       })
       .catch((error) => console.log(error)());
   }
+
+  function removeService(){}
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
@@ -152,10 +152,10 @@ function Projecto() {
             <div className={styles.service_form_container}>
               <h2>Adicone um serviço:</h2>
               <button className={styles.btn} onClick={toggleServiceForm}>
-                {!showServiceForm ? "Adiconar serviço" : "Fechar"}
+                {showServiceForm ? "Fechar" : "Adiconar serviço"}
               </button>
               <div className={styles.project_info}>
-                {!showServiceForm && (
+                {showServiceForm && (
                   <ServiceForm
                     handleSubmit={createService}
                     btnText="Adicionar serviço"
@@ -165,8 +165,22 @@ function Projecto() {
               </div>
             </div>
             <h2>Serviços</h2>
-            <Container className="start">
-              <p>Itens de Serviço</p>
+            <Container customClass="start">
+              {services.length > 0 &&
+               services.map((service) => (
+                <ServiceCard
+                id={service.id} 
+                name={service.name} 
+                cost={service.cost} 
+                descricao={service.descricao} 
+                key={service.id} 
+                handleRemove={removeService} 
+                />
+               )) 
+              }
+              {services.length === 0 && (
+                <Alert type="info" message="Nenhum serviço encontrado!" />
+              )}
             </Container>
           </Container>
         </div>
