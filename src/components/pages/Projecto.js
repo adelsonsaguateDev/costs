@@ -101,12 +101,35 @@ function Projecto() {
     })
       .then((response) => response.json())
       .then((data) => {
-        showServiceForm(false)
+        showServiceForm(false);
       })
       .catch((error) => console.log(error)());
   }
 
-  function removeService(){}
+  function removeService(id, cost) {
+    const servicesUpdated = project.services.filter(
+      (service) => service.id !== id
+    );
+
+    const projectUpdated = project;
+    projectUpdated.services = servicesUpdated;
+    projectUpdated.cost = parseFloat(projectUpdated.cost) - parseFloat(cost);
+
+    fetch(`http://localhost:5000/projectos/${projectUpdated.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(projectUpdated),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setProject(projectUpdated);
+        setServices(servicesUpdated);
+        setMessage("Serviço removido com sucesso!");
+      })
+      .catch((error) => console.log(error)());
+  }
 
   function toggleProjectForm() {
     setShowProjectForm(!showProjectForm);
@@ -167,17 +190,16 @@ function Projecto() {
             <h2>Serviços</h2>
             <Container customClass="start">
               {services.length > 0 &&
-               services.map((service) => (
-                <ServiceCard
-                id={service.id} 
-                name={service.name} 
-                cost={service.cost} 
-                descricao={service.descricao} 
-                key={service.id} 
-                handleRemove={removeService} 
-                />
-               )) 
-              }
+                services.map((service) => (
+                  <ServiceCard
+                    id={service.id}
+                    name={service.name}
+                    cost={service.cost}
+                    descricao={service.descricao}
+                    key={service.id}
+                    handleRemove={removeService}
+                  />
+                ))}
               {services.length === 0 && (
                 <Alert type="info" message="Nenhum serviço encontrado!" />
               )}

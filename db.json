@@ -8,33 +8,8 @@
         "id": "2",
         "nome": "Desenvolvimento"
       },
-      "cost": 13396,
-      "services": [
-        {
-          "name": "Teste",
-          "cost": "396",
-          "descricao": "Inventário_2024-10-13",
-          "id": "ad06969c-0111-4123-852a-d9b9f1912c5b"
-        },
-        {
-          "name": "Teste2",
-          "cost": "200",
-          "descricao": "Testetetete",
-          "id": "41f7b060-bdbf-45f7-952c-20554b32fd3d"
-        },
-        {
-          "name": "contratar um dev flutter",
-          "cost": "12000",
-          "descricao": "Será responsável pela parte mobile",
-          "id": "69db231a-c4db-4a59-885d-567289fd68a2"
-        },
-        {
-          "name": "Aplificação da sala de TI da ACSUN",
-          "cost": "800",
-          "descricao": "Será responsável pela parte mobile",
-          "id": "34763e9c-cee6-43d7-b1bb-322080ab7bcf"
-        }
-      ]
+      "cost": 0,
+      "services": []
     },
     {
       "id": "9161",
