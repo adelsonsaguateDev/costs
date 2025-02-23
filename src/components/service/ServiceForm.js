@@ -31,14 +31,14 @@ function ServiceForm({ handleSubmit, btnText, projectData}) {
       />
       <Input 
       type="number"
-      text="Cust do derviço"
+      text="Custo do serviço"
       name="cost"
       placeholder="Insira o valor total"
       handleOnChange={handleChange} 
       />
       <Input 
       type="text"
-      text="Descrição do derviço"
+      text="Descrição do serviço"
       name="descricao"
       placeholder="Descreva o serviço"
       handleOnChange={handleChange} 

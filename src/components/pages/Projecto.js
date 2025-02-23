@@ -101,7 +101,7 @@ function Projecto() {
     })
       .then((response) => response.json())
       .then((data) => {
-        showServiceForm(false);
+        setShowServiceForm(false);
       })
       .catch((error) => console.log(error)());
   }
@@ -127,6 +127,7 @@ function Projecto() {
         setProject(projectUpdated);
         setServices(servicesUpdated);
         setMessage("Serviço removido com sucesso!");
+        setType("success");
       })
       .catch((error) => console.log(error)());
   }

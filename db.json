@@ -3,7 +3,7 @@
     {
       "id": "1",
       "name": "Desenvolvimento de um website",
-      "budget": "15000",
+      "budget": "52050",
       "categoria": {
         "id": "2",
         "nome": "Desenvolvimento"
@@ -19,8 +19,15 @@
         "id": "1",
         "nome": "Infra-Estrutura"
       },
-      "cost": 0,
-      "services": []
+      "cost": 2000,
+      "services": [
+        {
+          "name": "Ola Mundo",
+          "cost": "2000",
+          "descricao": "akldkjda",
+          "id": "7898aa79-a3d5-47e1-9048-49be33dcef5b"
+        }
+      ]
     },
     {
       "id": "de0a",
@@ -114,6 +121,11 @@
         "id": "3",
         "nome": "Design"
       },
+      "cost": 0,
+      "services": []
+    },
+    {
+      "id": "9a21",
       "cost": 0,
       "services": []
     }
