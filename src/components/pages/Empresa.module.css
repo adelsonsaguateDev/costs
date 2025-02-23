@@ -1,0 +1,148 @@
+/* Estilos gerais */
+.empresa {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  /* Seção de Informações */
+  .informacoes {
+    margin-bottom: 40px;
+  }
+  
+  .informacoes h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .informacoes p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Seção de Equipe */
+  .equipe {
+    margin-bottom: 40px;
+  }
+  
+  .equipe h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .membros {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .membro {
+    flex: 1 1 200px;
+    text-align: center;
+  }
+  
+  .membro img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .membro h3 {
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .membro p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Seção de Estatísticas */
+  .estatisticas {
+    margin-bottom: 40px;
+  }
+  
+  .estatisticas h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .numeros {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .numero {
+    text-align: center;
+  }
+  
+  .numero h3 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .numero p {
+    font-size: 1.1rem;
+    color: #666;
+  }
+  
+  /* Seção de Depoimentos */
+  .depoimentos {
+    margin-bottom: 40px;
+  }
+  
+  .depoimentos h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    flex: 1 1 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .card h4 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-top: 10px;
+  }
